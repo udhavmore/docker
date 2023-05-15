@@ -1,0 +1,11 @@
+version: '3'
+services: 
+    # Container 1 with redis
+    redis-server:
+        image: 'redis' # using redis image
+    # Container 2 with my visitcounter app
+    node-app:
+        restart: always
+        build: . # Building the image using Dockerfile in current dir
+        ports:
+            - "5001:8081" # mapping local and docker ports
